@@ -26,10 +26,14 @@
         <!-- CPUBOOST_MIN_FREQ LITTLE Core resource opcode, value-->
         <!-- CPUBOOST_MIN_FREQ PRIME Core resource opcode, value-->
         <!-- Type="1", main launch of 2sec -->
+        <!-- Asteroids: raise the main launch min-freq floors one bin each so app launch runs
+             at a higher baseline from frame 0 instead of ramping up from mid clocks.
+             BIG 1401->1708, LITTLE 1344->1555, PRIME 1651->1958 MHz (all valid 19.2MHz steps,
+             well under per-cluster max; max freqs already unlocked via 0xFFF above). -->
         <Config
            Id="0x00001081" Type="1" Enable="true" Timeout="2000" Target="volcano"
            Resources="0x40C00000, 0x1, 0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40804200, 0xFFF,
-                      0x40800000, 1401, 0x40800100, 1344, 0x40800200, 1651" />
+                      0x40800000, 1708, 0x40800100, 1555, 0x40800200, 1958" />
 
     <!-- config_enableLaunchBoostv3-->
         <!-- Type="3", FA launch boost of 15sec -->
